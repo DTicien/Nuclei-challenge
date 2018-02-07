@@ -1,4 +1,4 @@
-name: datascience
+name: nuclei
 channels:
   - conda-forge
   - defaults
