@@ -1,6 +1,10 @@
 # Nuclei-challenge
 Kaggle challenge
 
+- Lien vers le challeng Kaggle : 
+
+https://www.kaggle.com/c/data-science-bowl-2018
+
 Installation des librairies Python :
 
 - Commencer par installer Miniconda qui te permet d'avoir le gestionnaire de paquets Conda : 
