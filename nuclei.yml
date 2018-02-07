@@ -2,6 +2,7 @@ name: nuclei
 channels:
   - conda-forge
   - defaults
+  - anaconda
 dependencies:
   - gdal
   - numpy
@@ -19,6 +20,7 @@ dependencies:
   - nb_conda
   - tensorflow-gpu
   - tensorflow-tensorboard
+  - scikit-image
   - pip
   - pip:
-    - python-drawnow
+
