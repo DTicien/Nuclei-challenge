@@ -26,3 +26,5 @@ L'avantage d'utiliser le fichier c'est aussi qu'il gère toutes les dépendances
 - Une fois la commande lancée, il faut faire **source activate nuclei** pour entrer dans l'environnement virtuel.
 
 - Pour info, l'IDE c'est spyder, et il y a aussi jupyter notebook qui permet de prototyper plus rapidement. En revanche, tu verras que c'est moins accueillant que Matlab...
+
+# Modification JF pour test git :D
