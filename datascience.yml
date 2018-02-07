@@ -1,0 +1,24 @@
+name: datascience
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - gdal
+  - numpy
+  - matplotlib
+  - pandas
+  - spyder
+  - seaborn
+  - scipy
+  - scikit-learn
+  - keras
+  - xgboost
+  - opencv
+  - mkl-service
+  - graphviz
+  - nb_conda
+  - tensorflow-gpu
+  - tensorflow-tensorboard
+  - pip
+  - pip:
+    - python-drawnow
