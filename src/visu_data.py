@@ -19,7 +19,7 @@ def visu_im(gshape,flagMask):
     from skimage.transform import resize
     from skimage.util.montage import montage2d
 
-    # Taille auquelle redimensionner les images pour la visu
+    # Taille à laquelle redimensionner les images pour la visu
     target_height = 256
     target_width  = 256
     
