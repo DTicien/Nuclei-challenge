@@ -27,7 +27,7 @@ def visu_im(gshape,flagMask):
     train_path = "/home/mathieu/Documents/Kaggle/nuclei_challenge/stage1_train";
     
     Nmos = np.prod(np.array(gshape))
-    tab_im = np.zeros((Nmos,target_height,target_width),dtype=np.float32);
+    tab_im = np.zeros((Nmos,target_height,target_width,3),dtype=np.float32);
     
     # Lister l'ensemble des répertoires contenant les images et les masques
     list_dir = []
@@ -35,9 +35,8 @@ def visu_im(gshape,flagMask):
         list_dir.extend(dirnames)
         break
     
-    plt.figure();    
-    
-    for i_im in range(0,Nmos):
+    i_deb = 0;
+    for i_im in range(i_deb,Nmos+i_deb):
     
         #fig1.add_subplot(np.sqrt(Nmos),np.sqrt(Nmos),i_im+1)
     
@@ -65,14 +64,18 @@ def visu_im(gshape,flagMask):
                 mask = mask | (cv2.imread(mask_full_path) != 0)
             
             # Resize du masque pour pouvoir les insérer dans la mosaique
-            tab_im[i_im,:,:] = resize(mask[:,:,1],(target_height, target_width))
-        else:
-            
+            tab_im[i_im-i_deb,:,:,:] = resize(mask,(target_height, target_width))                
+        else:            
             # Resize de l'image pour pouvoir les insérer dans la mosaique
-            tab_im[i_im,:,:] = resize(im[:,:,1],(target_height, target_width))
+            tab_im[i_im-i_deb,:,:,:] = resize(im,(target_height, target_width))
 
+    # On stack les trois couleurs pour reformer l'image RGB
+    mosaic = np.stack([montage2d(tab_im[:,:,:,0],grid_shape=gshape),montage2d(tab_im[:,:,:,1],grid_shape=gshape),montage2d(tab_im[:,:,:,2],grid_shape=gshape)],axis=2)
+    mosaic = np.uint8(255*mosaic);
+    
     # Affichage de la mosaique
-    plt.imshow(montage2d(tab_im,grid_shape=gshape))
+    plt.figure()
+    plt.imshow(mosaic)
     plt.tight_layout
     
-visu_im((20,30),True)
+visu_im((10,20),False)
